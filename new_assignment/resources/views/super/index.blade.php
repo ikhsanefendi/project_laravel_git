@@ -17,16 +17,15 @@
 					<tr>
 						<th>Nama</th>
 						<th>Email</th>
-						<th>Password</th>
+						<!-- <th>Password</th> -->
                         <th>Action</th>
 					</tr>
 					<?php foreach($siswa as $key){?>
 					<tr>
 						<td><?php echo $key->name ?></td>
 						<td><?php echo $key->email ?></td>
-						<td><?php echo $key->password ?></td>
+						<!-- <td><?php echo $key->password ?></td> -->
 						<td>
-							<a class="btn btn-warning btn-sm" href="/update_guru/<?php echo $key->id ?>">Edit</a>
 							<a class="btn btn-danger btn-sm" href="/hapus_guru/<?php echo $key->id ?>">Hapus</a>
 						</td>
 					</tr>
