@@ -25,6 +25,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function adminHome()
+    {
+        $siswa= DB::table('users')->where('is_admin',"")->get();
+        return view('super/index',['siswa'=>$siswa]);
+    }
     public function index()
     {
         $siswa= DB::table('siswa')->get();
@@ -36,7 +41,7 @@ class HomeController extends Controller
     }   
 
     public function save(SiteRequest $request){
-
+        echo "<script>alert('Data Berhasil Diinput')</script>";
         $data = new Siswa();
         $data->nama = $request->input('nama');
         $data->email = $request->input('email');
@@ -60,8 +65,6 @@ class HomeController extends Controller
 
     public function form_edit($id){
         $data = DB::table('siswa')->where('id',$id)->get();
-        // print_r($data);
-        // die();
         return view('admin/edit',['data'=>$data]);
     }
     
@@ -88,6 +91,8 @@ class HomeController extends Controller
         return redirect()->action('HomeController@index');
     }
     public function delete($id){
+        echo "<script>alert('Data Berhasil Di')</script>";
+        // Alert::success('pesan yang ingin disampaikan', 'Judul Pesan');
         DB::table('siswa')->where('id',$id)->delete();
         return redirect()->action('HomeController@index');
     }

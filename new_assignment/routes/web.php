@@ -17,6 +17,13 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
+Route::get('admin', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
+// Route::get('add_guru', 'AdminController@form_add_guru')->name('admin.home')->middleware('is_admin');
+// Route::post('simpan_guru', 'AdminController@save_guru')->name('admin.home')->middleware('is_admin');
+Route::get('hapus_guru/{id}', 'AdminController@delete_guru')->name('admin.home')->middleware('is_admin');
+// Route::get('update_guru/{id}', 'AdminController@update_guru')->name('admin.home')->middleware('is_admin');
+// Route::post('edit_guru/{id}', 'AdminController@edit_guru')->name('admin.home')->middleware('is_admin');
+
 Route::get('dashboard','HomeController@index');
 Route::get('add','HomeController@form_add');
 Route::POST('simpan','HomeController@save');
@@ -27,13 +34,11 @@ Route::post('edit/{id}','HomeController@edit');
 
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+// Auth::routes();
 
-Auth::routes();
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Auth::routes();
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');

@@ -27,9 +27,9 @@ class SiteRequest extends FormRequest
             'nama' => 'required',
             'email' => 'required',
             'foto' => 'required',
-            // 'email' => 'required',
-            // 'nama' => 'required',
-    		// 'email' => 'required',
+            'gender' => 'required',
+            'ttl' => 'required',
+    		'no' => 'required',
         ];
     }
 }
