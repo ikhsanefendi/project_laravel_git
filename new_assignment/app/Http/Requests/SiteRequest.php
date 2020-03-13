@@ -25,7 +25,11 @@ class SiteRequest extends FormRequest
     {
         return [
             'nama' => 'required',
-    		'email' => 'required',
+            'email' => 'required',
+            'foto' => 'required',
+            // 'email' => 'required',
+            // 'nama' => 'required',
+    		// 'email' => 'required',
         ];
     }
 }

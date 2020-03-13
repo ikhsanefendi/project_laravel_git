@@ -14,14 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
-Route::get('dashboard','DashboardController@index');
-Route::get('add','DashboardController@form_add');
-Route::POST('simpan','DashboardController@save');
-Route::GET('hapus/{id}','DashboardController@delete');
+Route::get('dashboard','HomeController@index');
+Route::get('add','HomeController@form_add');
+Route::POST('simpan','HomeController@save');
+Route::GET('hapus/{id}','HomeController@delete');
+Route::get('update/{id}','HomeController@form_edit');
+Route::post('edit/{id}','HomeController@edit');
 
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 

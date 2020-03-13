@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Penambahan Siswa</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
+
 <?php if ($errors->any()){?>
   <div class="alert alert-danger alert-dismissible" role="alert">
      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><em>
@@ -18,57 +14,60 @@
 </em>
 </div>
 <?php } ?>
-    <h1>Hello World :)</h1>
     <section class="login-maintop">
     		<div class="login-main">
-			<div class="col-lg-12">
+			<div class="col-sm-8 offset-sm-2">
 				<h1>Form Tambah Siswa</h1>
 			</div>
 			<form class="form-horizontal" action="/simpan" method="post" enctype="multipart/form-data">
             <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
-			<div class="field">
+			<div class="field col-sm-8 offset-sm-2">
 			    <div class="form-group">
-			        <label class="col-lg-2 control-label">Nama</label>
-			        <div class="col-lg-5">
+			        <label class="col-lg-12 control-label">Nama</label>
+			        <div class="col-lg-12">
 			            <input type="text" name="nama" id="nama" class="form-control">
 			        </div>
 			    </div>
 			    <div class="form-group">
-			    	<label class="col-lg-2 control-label">Email</label>
-			        <div class="col-lg-5">
-			            <input type="text" name="email" id="email" class="form-control">
+			    	<label class="col-lg-12 control-label">Email</label>
+			        <div class="col-lg-12">
+			            <input type="email" name="email" id="email" class="form-control">
 			        </div>
 			    </div>
                 <div class="form-group">
-			    	<label class="col-lg-2 control-label">Tempat, Tanggal Lahir</label>
-			        <div class="col-lg-5">
+			    	<label class="col-lg-12 control-label">Tempat, Tanggal Lahir</label>
+			        <div class="col-lg-12">
 			            <input type="date" name="ttl" id="ttl" class="form-control">
 			        </div>
 			    </div>
 	  			<div class="form-group">
-			        <label class="col-lg-2 control-label">No Telepon </label>
-			        <div class="col-lg-5">
+			        <label class="col-lg-12 control-label">No Telepon </label>
+			        <div class="col-lg-12">
 			            <input type="number" name="no" id="no" class="form-control">
 			        </div>
-			    <!-- </div>
+			    </div>
                 <div class="form-group">
-			    	<label class="col-lg-2 control-label">Gender</label>
-			        <div class="col-lg-5">
-			            <input type="text" name="alamat" id="alamat" class="form-control">
+			    	<label class="col-lg-12 control-label">Gender</label>
+			        <div class="col-lg-12">
+						
+			            <input type="radio" name="gender" id="gender" value="laki-laki"> Laki - Laki   
+			            <input type="radio" name="gender" id="gender" value="perempuan"> Perempuan
+
 			        </div>
-			    </div> -->
+			    </div>
 			    <div class="form-group">
-			        <label class="col-lg-2 control-label">Foto Siswa</label>
-			        <div class="col-lg-5">
+			        <label class="col-lg-12 control-label">Foto Siswa</label>
+			        <div class="col-lg-12">
 			            <input type="file" name="foto" id="foto" class="form-control">
 			        </div>
 			    </div>
+				<button class="btn btn-primary" type="submit" onChange="validate()"><i class="glyphicon glyphicon-hdd"></i> Daftar</button>
+				<a class="btn btn-primary" href="/home"> Tambah </a>
 			 </div>
 
-	      		  <button class="btn btn-primary" type="submit" onChange="validate()"><i class="glyphicon glyphicon-hdd"></i> Daftar</button>
 			</form>	            	
 			
 			</div>
 		</section>
-</body>
-</html>
+@endsection
+
